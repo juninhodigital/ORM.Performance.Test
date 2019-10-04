@@ -45,7 +45,7 @@ namespace ORM.Test.Dapper.Azure.Controllers
         /// </summary>
         private void InsertThousands()
         {
-            var items = GetMockedData(10000);
+            var items = GetMockedData(Constants.TotalItems);
 
             using (var profiler = new Framework.Core.MiniProfiler("Test_Dapper"))
             {
@@ -104,7 +104,7 @@ namespace ORM.Test.Dapper.Azure.Controllers
         /// </summary>
         private void InsertThousandsEF()
         {
-            var items = GetMockedDataEF(10000);
+            var items = GetMockedDataEF(Constants.TotalItems);
 
             using (var profiler = new Framework.Core.MiniProfiler("Test_EF"))
             {
@@ -155,13 +155,13 @@ namespace ORM.Test.Dapper.Azure.Controllers
                 var randon = new Random().Next(156, 9874465);
                 var item = new Person
                 {
-                    Address = $"Adress - {randon}",
-                    City = $"City - {randon}",
-                    Country = $"Country - {randon}",
+                    Address   = $"Adress - {randon}",
+                    City      = $"City - {randon}",
+                    Country   = $"Country - {randon}",
                     FirstName = $"FirstName - {randon}",
-                    LastName = $"LastName - {randon}",
-                    ZipCode = $"ZipCode - {randon}".Substring(0, 10),
-                    Status = new Random().Next(0, 1) == 0 ? false : true
+                    LastName  = $"LastName - {randon}",
+                    ZipCode   = $"ZipCode - {randon}".Substring(0, 10),
+                    Status    = new Random().Next(0, 1) == 0 ? false : true
                 };
 
                 output.Add(item);
